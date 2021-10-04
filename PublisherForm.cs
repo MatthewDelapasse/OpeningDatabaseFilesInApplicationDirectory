@@ -41,7 +41,7 @@ namespace Example_6_8
                 //Connect to the books database (this will lead to an unsuccessful connection)
                 //string fullfile = Path.GetFullPath("SQLBooksDB.accdb");
 
-                booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
+                booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "\\SQLBooks.DB.mdf;Integrated Security=True; Connect Timeout=30; User Instance=True");
                 booksConnection.Open();
 
                 //This tested to see if the connection worked
