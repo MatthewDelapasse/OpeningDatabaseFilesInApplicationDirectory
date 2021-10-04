@@ -15,6 +15,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using System.Drawing.Printing;
+using AuthorsTableInputForm6_7;
+using Example_6_8;
 
 namespace OpeningDatabaseFilesInApplicationDirectory
 {
@@ -371,53 +373,53 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             SetText();
         }
 
-        //private void btnPublishers_Click(object sender, EventArgs e)
-        //{
-        //    PublishersForm pubForm = new PublishersForm();
-        //    string pubSave = cboPublisher.Text;
-        //    pubForm.ShowDialog();
-        //    pubForm.Dispose();
-        //    need to regenerate publishers data
-        //    string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
-        //    booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
-        //    booksConnection.Open();
-        //    publishersAdapter.SelectCommand = publishersCommand;
-        //    publishersTable = new DataTable();
-        //    publishersAdapter.Fill(publishersTable);
-        //    cboPublisher.DataSource = publishersTable;
-        //    cboPublisher.Text = pubSave;
-        //}
+        private void btnPublishers_Click(object sender, EventArgs e)
+        {
+            PublishersForm pubForm = new PublishersForm();
+            string pubSave = cboPublisher.Text;
+            pubForm.ShowDialog();
+            pubForm.Dispose();
+            //need to regenerate publishers data
+            string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
+            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
+            booksConnection.Open();
+            publishersAdapter.SelectCommand = publishersCommand;
+            publishersTable = new DataTable();
+            publishersAdapter.Fill(publishersTable);
+            cboPublisher.DataSource = publishersTable;
+            cboPublisher.Text = pubSave;
+        }
 
-        //private void btnAuthors_Click(object sender, EventArgs e)
-        //{
-        //    frmAuthors authorsForm = new frmAuthors();
-        //    string[] authorsSave = new string[4];
-        //    authorsSave[0] = authorsCombo[0].Text;
-        //    authorsSave[1] = authorsCombo[1].Text;
-        //    authorsSave[2] = authorsCombo[2].Text;
-        //    authorsSave[3] = authorsCombo[3].Text;
-        //    authorsForm.ShowDialog();
-        //    authorsForm.Dispose();
-        //    need to regenerate authors data
-        //    string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
-        //    booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
-        //    booksConnection.Open();
-        //    authorsAdapter.SelectCommand = authorsCommand;
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        authorsTable[i] = new DataTable();
-        //        authorsAdapter.Fill(authorsTable[i]);
-        //        authorsCombo[i].DataSource = authorsTable[i];
-        //        if (!authorsSave[i].Equals(""))
-        //        {
-        //            authorsCombo[i].Text = authorsSave[i];
-        //        }
-        //        else
-        //        {
-        //            authorsCombo[i].SelectedIndex = -1;
-        //        }
-        //    }
-        //}
+        private void btnAuthors_Click(object sender, EventArgs e)
+        {
+            frmAuthors authorsForm = new frmAuthors();
+            string[] authorsSave = new string[4];
+            authorsSave[0] = authorsCombo[0].Text;
+            authorsSave[1] = authorsCombo[1].Text;
+            authorsSave[2] = authorsCombo[2].Text;
+            authorsSave[3] = authorsCombo[3].Text;
+            authorsForm.ShowDialog();
+            authorsForm.Dispose();
+            //need to regenerate authors data
+            string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
+            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
+            booksConnection.Open();
+            authorsAdapter.SelectCommand = authorsCommand;
+            for (int i = 0; i < 4; i++)
+            {
+                authorsTable[i] = new DataTable();
+                authorsAdapter.Fill(authorsTable[i]);
+                authorsCombo[i].DataSource = authorsTable[i];
+                if (!authorsSave[i].Equals(""))
+                {
+                    authorsCombo[i].Text = authorsSave[i];
+                }
+                else
+                {
+                    authorsCombo[i].SelectedIndex = -1;
+                }
+            }
+        }
 
         private void btnPrintRecord_Click(object sender, EventArgs e)
         {

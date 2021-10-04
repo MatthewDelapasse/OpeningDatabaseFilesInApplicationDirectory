@@ -77,11 +77,9 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.btnAuthors = new System.Windows.Forms.Button();
             this.txtISBN = new System.Windows.Forms.MaskedTextBox();
             this.btnPrintRecord = new System.Windows.Forms.Button();
-            this.picBooks = new System.Windows.Forms.PictureBox();
             this.btnPrintTitles = new System.Windows.Forms.Button();
             this.dlgPreview = new System.Windows.Forms.PrintPreviewDialog();
             this.grpFindTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBooks)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -409,7 +407,6 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.btnPublishers.TabIndex = 35;
             this.btnPublishers.Text = "&Publishers";
             this.btnPublishers.UseVisualStyleBackColor = true;
-            //this.btnPublishers.Click += new System.EventHandler(this.btnPublishers_Click);
             // 
             // label10
             // 
@@ -543,7 +540,6 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.btnAuthors.TabIndex = 50;
             this.btnAuthors.Text = "A&uthors";
             this.btnAuthors.UseVisualStyleBackColor = true;
-            //this.btnAuthors.Click += new System.EventHandler(this.btnAuthors_Click);
             // 
             // txtISBN
             // 
@@ -562,16 +558,6 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.btnPrintRecord.Text = "Print &Record";
             this.btnPrintRecord.UseVisualStyleBackColor = true;
             this.btnPrintRecord.Click += new System.EventHandler(this.btnPrintRecord_Click);
-            // 
-            // picBooks
-            // 
-            this.picBooks.Location = new System.Drawing.Point(428, 388);
-            this.picBooks.Name = "picBooks";
-            this.picBooks.Size = new System.Drawing.Size(63, 22);
-            this.picBooks.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBooks.TabIndex = 52;
-            this.picBooks.TabStop = false;
-            this.picBooks.Visible = false;
             // 
             // btnPrintTitles
             // 
@@ -593,13 +579,12 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.dlgPreview.Name = "dlgPreview";
             this.dlgPreview.Visible = false;
             // 
-            // frmTitles
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 438);
             this.Controls.Add(this.btnPrintTitles);
-            this.Controls.Add(this.picBooks);
             this.Controls.Add(this.btnPrintRecord);
             this.Controls.Add(this.txtISBN);
             this.Controls.Add(this.btnAuthors);
@@ -646,7 +631,7 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.hlpPublishers.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TableOfContents);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmTitles";
+            this.Name = "Form1";
             this.hlpPublishers.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Titles";
@@ -654,9 +639,9 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             this.Load += new System.EventHandler(this.frmTitles_Load);
             this.grpFindTitle.ResumeLayout(false);
             this.grpFindTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBooks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private void BtnPrintRecord_Click(object sender, System.EventArgs e)
@@ -723,7 +708,6 @@ namespace OpeningDatabaseFilesInApplicationDirectory
         private System.Windows.Forms.Button btnAuthors;
         private System.Windows.Forms.MaskedTextBox txtISBN;
         private System.Windows.Forms.Button btnPrintRecord;
-        private System.Windows.Forms.PictureBox picBooks;
         private System.Windows.Forms.Button btnPrintTitles;
         private System.Windows.Forms.PrintPreviewDialog dlgPreview;
     }
