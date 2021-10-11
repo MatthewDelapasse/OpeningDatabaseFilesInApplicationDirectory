@@ -60,14 +60,10 @@ namespace OpeningDatabaseFilesInApplicationDirectory
                 hlpPublishers.HelpNamespace = Application.StartupPath + "\\titles.chm";
 
                 //connect to the books database (this will lead to successful connection)
-                //string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
+                string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
 
-                //Connect to the books database (this will lead to an unsuccessful connection)
-                //string fullfile = Path.GetFullPath("SQLBooksDB.accdb");
-                string opens = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                MessageBox.Show(opens);
 
-                booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + Application.StartupPath + "SQLBooksDB.mdf;Integrated Security=True; Connect Timeout=30; User Instance=True");
+                booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
                 booksConnection.Open();
 
                 //This tested to see if the connection worked
@@ -381,7 +377,7 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             pubForm.Dispose();
             //need to regenerate publishers data
             string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
-            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + "SQLBooksDB.mdf;Integrated Security=True; Connect Timeout=30; User Instance=True");
+            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
             booksConnection.Open();
             publishersAdapter.SelectCommand = publishersCommand;
             publishersTable = new DataTable();
@@ -402,7 +398,7 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             authorsForm.Dispose();
             //need to regenerate authors data
             string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
-            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + "SQLBooksDB.mdf;Integrated Security=True; Connect Timeout=30; User Instance=True");
+            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
             booksConnection.Open();
             authorsAdapter.SelectCommand = authorsCommand;
             for (int i = 0; i < 4; i++)
