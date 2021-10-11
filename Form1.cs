@@ -381,7 +381,7 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             pubForm.Dispose();
             //need to regenerate publishers data
             string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
-            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
+            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + "SQLBooksDB.mdf;Integrated Security=True; Connect Timeout=30; User Instance=True");
             booksConnection.Open();
             publishersAdapter.SelectCommand = publishersCommand;
             publishersTable = new DataTable();
@@ -402,7 +402,7 @@ namespace OpeningDatabaseFilesInApplicationDirectory
             authorsForm.Dispose();
             //need to regenerate authors data
             string fullfile = Path.GetFullPath("SQLBooksDB.mdf");
-            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + ";Integrated Security=True; Connect Timeout=30; User Instance=True");
+            booksConnection = new SqlConnection("Data Source=.\\SQLEXPRESS; AttachDbFilename=" + fullfile + "SQLBooksDB.mdf;Integrated Security=True; Connect Timeout=30; User Instance=True");
             booksConnection.Open();
             authorsAdapter.SelectCommand = authorsCommand;
             for (int i = 0; i < 4; i++)
